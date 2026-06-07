@@ -10,16 +10,14 @@ async function getAllCourses(): Promise<typeof course> {
 export default async function Home() {
   const courses = await getAllCourses();
   return (
-    <main className={style.main}>
-      <ul>
-        {courses.lessons.map((lesson) => {
-          return (
-            <li key={lesson.name}>
-              <Lesson title={lesson.title} shortSummary={lesson.shortSummary} />
-            </li>
-          );
-        })}
-      </ul>
-    </main>
+    <ul>
+      {courses.lessons.map((lesson) => {
+        return (
+          <li key={lesson.name}>
+            <Lesson title={lesson.title} shortSummary={lesson.shortSummary} />
+          </li>
+        );
+      })}
+    </ul>
   );
 }
