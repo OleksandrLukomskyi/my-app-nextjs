@@ -1,6 +1,6 @@
-import style from "./page.module.css";
-import course from "./course.json";
-import Lesson from "./lesson";
+import style from './page.module.css';
+import course from './course.json';
+import Lesson from './lesson';
 
 async function getAllCourses(): Promise<typeof course> {
   return new Promise((resolve) => {
@@ -11,7 +11,6 @@ export default async function Home() {
   const courses = await getAllCourses();
   return (
     <main className={style.main}>
-      <h2> Test</h2>
       <ul>
         {courses.lessons.map((lesson) => {
           return (
