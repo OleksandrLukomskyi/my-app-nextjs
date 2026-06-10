@@ -1,7 +1,6 @@
-type DelayOptions = |{
-   timeout: number: shouldFail?: boolean
-}
-   | { timeout?: number: shouldFail: boolean };
+type DelayOptions =
+   | { timeout: number;  shouldFail?: boolean}
+   | { timeout?: number; shouldFail: boolean };
 
 export function delayed<>(
    data: T,
