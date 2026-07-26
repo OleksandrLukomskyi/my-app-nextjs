@@ -12,7 +12,16 @@ export default async function Home({
   const page = Number.parseInt(params['page'] ?? 1);
   console.log(page);
   const allArticles = await getAllArticles();
-const articles = allArticles.slice((page - 1) * ARTICLES_PER_PAGE, page * ARTICLES_PER_PAGE);
+  const articles = allArticles.slice(
+    (page - 1) * ARTICLES_PER_PAGE,
+    page * ARTICLES_PER_PAGE
+  );
+
+  const nextPageUrl = {
+    search: new URLSearchParams({
+      page: (page + 1).toString(),
+    }).toString(),
+  };
   return (
     <>
       <h1> Drag blog, page {page}</h1>
@@ -25,6 +34,7 @@ const articles = allArticles.slice((page - 1) * ARTICLES_PER_PAGE, page * ARTICL
           </li>
         ))}
       </ul>
+      <AppLink href={nextPageUrl}>Next</AppLink>
     </>
   );
 }
