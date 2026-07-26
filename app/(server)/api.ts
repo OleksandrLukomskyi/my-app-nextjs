@@ -3,7 +3,7 @@ import articles from './db.json';
 import { delayed } from './delay';
 
 export function getAllArticles() {
-  return delayed(articles);
+  return delayed(articles, { timeout: 0 });
 }
 
 export function getArticleByName(articleName: string) {
